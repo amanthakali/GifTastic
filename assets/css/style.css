@@ -1,0 +1,14 @@
+#animal-form{
+    /* float: right; */
+    margin: 20px;
+}
+#animals-input{
+    margin-bottom: 10px;
+}
+/* body{
+    background-image:url("/assets/images/001.gif")
+} */
+.container{
+    width: 90%;
+    background-color: whitesmoke;
+}
