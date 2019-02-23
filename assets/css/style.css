@@ -1,14 +1,29 @@
 #animal-form{
     /* float: right; */
     margin: 20px;
+    padding: 10px;
 }
 #animals-input{
     margin-bottom: 10px;
+    padding: 10px;
+    font-family: serif;
+
 }
 /* body{
     background-image:url("/assets/images/001.gif")
-} */
+}
 .container{
     width: 90%;
-    background-color: whitesmoke;
+    background-color: rgb(137, 158, 201);
+    margin-top: 10px;
+} */
+h1{
+    font-family:  monospace;
+    font-size: 50px;
+    color: rgb(92, 186, 209);
+    font-weight: bold
+}
+.animal-btn {
+   margin: 5px;
+
 }

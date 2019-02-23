@@ -1,4 +1,7 @@
 var animals = [];
+var results;
+var animalDiv;
+
 
 // displayanimalInfo function re-renders the HTML to display the appropriate content
 function displayanimalInfo() {
@@ -15,9 +18,9 @@ function displayanimalInfo() {
   }).then(function(response) {
     // Creating a div to hold the animal
     console.log(response);
-    var results = response.data;
+    results = response.data;
     for (var i = 0; i < results.length; i++) {
-      var animalDiv = $("<div class='animal'>");
+      animalDiv = $("<div class='animal'>");
 
       // Storing the rating data
       var rating = results[i].rating;
@@ -33,6 +36,8 @@ function displayanimalInfo() {
 
       // Creating an element to hold the image
       var image = $("<img>").attr("src", imgURL);
+      image.attr("id", i);
+      image.attr("gif", false);
 
       // Appending the image
       animalDiv.append(image);
@@ -42,16 +47,64 @@ function displayanimalInfo() {
     }
 
     $("img").on("click", function() {
-      console.log("clicked");
-      for (var i = 0; i < results.length; i++) {
-        var imgURLgif = results[i].images.fixed_width.url;
-        var imagegif = $("<img>").attr("src", imgURLgif);
-        animalDiv.append(imagegif);
-        $("#animals-view").prepend(animalDiv);
-      }
+    
+      // console.log(" DEBUG>>>clicked");
+      // console.log(this.id);
+      
+      
+        showGif(this.id);
+      
+     
+      
+        // var imgURLgif = results[i].images.fixed_width.url;
+        //  imagegif = $("<img>").attr("src", imgURLgif);
+        // animalDiv.append(imagegif);
+        // $("#animals-view").prepend(animalDiv);
+      
     });
+
+
+    //  $("img").on("click", function() {
+    //   switchGif(this.id);
+    // });
+
+
+
+
   });
 }
+var gifNotRunning = true;
+function showGif(id){
+  var imgURLgif = results[id].images.fixed_width.url;
+  var imgURL = results[id].images.fixed_width_still.url;
+  var thisImg = $("#"+id);
+  console.log(thisImg.attr("gif"));
+  
+  if (gifNotRunning){
+    gifNotRunning = false;
+    thisImg.attr("src", imgURLgif);
+  }else{
+    gifNotRunning = true;
+    thisImg.attr("src", imgURL);
+  }
+        //  imagegif = $("<img>").attr("src", imgURLgif);
+        // animalDiv.append(imagegif);
+};
+
+//how about if the gif is playing
+//you click on it and it switches back to 
+//static image?
+
+
+function switchGif(id){
+  var imgURL = results[id].images.fixed_width_still.url;
+  var thisImg = $("#"+id);
+  thisImg.attr("gif", false);
+  thisImg.attr("src", imgURL);
+
+};
+
+
 
 // Function for displaying animal data
 function renderButtons() {
