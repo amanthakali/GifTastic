@@ -9,19 +9,20 @@
     font-family: serif;
 
 }
-/* body{
+body{
     background-image:url("/assets/images/001.gif")
 }
 .container{
     width: 90%;
     background-color: rgb(137, 158, 201);
-    margin-top: 10px;
-} */
+    /* margin-top: 10px; */
+}
 h1{
     font-family:  monospace;
     font-size: 50px;
-    color: rgb(92, 186, 209);
-    font-weight: bold
+    color: rgb(6, 44, 88);
+    font-weight: bold;
+    padding: 20px;
 }
 .animal-btn {
    margin: 5px;
