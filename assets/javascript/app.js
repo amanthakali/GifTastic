@@ -100,14 +100,9 @@ function renderButtons() {
 // This function handles events where a animal button is clicked
 $("#add-animal").on("click", function(event) {
   event.preventDefault();
-  // This line grabs the input from the textbox
-  var animal = $("#animal-input")
-    .val()
-    .trim();
-
-  // Adding animal from the textbox to our array
-  animals.push(animal);
-
+  // This function grabs the input from the textbox checks if its 
+  // already entered, if not that pushes the animal to the animals array.
+  enterAnimal();
   // Calling renderButtons which handles the processing of our animal array
   renderButtons();
 });
@@ -117,4 +112,21 @@ $(document).on("click", ".animal-btn", displayanimalInfo);
 
 // Calling the renderButtons function to display the intial buttons
 renderButtons();
-y
+
+// get the animal input and push into animals array if it is not entered previously
+function enterAnimal(){
+  var animal = $("#animal-input")
+  .val()
+  .trim();
+ 
+  if(animals.indexOf(animal)===-1){
+// Adding animal from the textbox to our array
+animals.push(animal);
+  }
+  else{
+    alert(animal + "  is already added.")
+  }
+}
+
+ 
+
